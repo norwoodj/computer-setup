@@ -101,5 +101,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 for f in ${HOME}/.zshrc.d/*; do
-  source ${f}
+	source ${f}
 done

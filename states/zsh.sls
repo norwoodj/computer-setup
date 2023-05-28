@@ -14,10 +14,10 @@ install-oh-my-zsh:
 /home/{{ username }}/.zshrc:
   file.managed:
     - source:
-      - 'salt://files/zshrc'
+      - "salt://files/zshrc"
     - user: {{ username }}
     - group: {{ username }}
-    - mode: '0644'
+    - mode: "0644"
 
 {{ username }}:
   user.present:

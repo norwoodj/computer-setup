@@ -12,7 +12,7 @@ neovim:
   cmd.run:
     - name: |
         curl -sL https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim.appimage -o /usr/local/bin/nvim
-        chmod +x /usr/local/bin/nvim    
+        chmod +x /usr/local/bin/nvim
     - creates: /usr/local/bin/nvim
 
 lunarvim:
@@ -33,5 +33,13 @@ lunarvim:
       - "salt://files/lunarvim"
     - user: {{ username }}
     - group: {{ username }}
-    - mode: '0644'
+    - mode: "0644"
+
+/home/{{ username }}/.config/lvim/config.lua:
+  file.managed:
+    - source:
+      - "salt://files/config.lua"
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: "0644"
 

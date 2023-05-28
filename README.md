@@ -1,18 +1,8 @@
 # personal-computer-setup
 
-```
-cd /tmp
-curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
-sudo sh bootstrap_salt.sh
-sudo sh -c "echo 'file_client: local' >> /etc/salt/minion"
-sudo systemctl restart salt-minion
-```
-
-Then coming back to this directory:
-```
-sudo ln -s $(pwd)/states /srv/salt
-sudo ln -s $(pwd)/pillar /srv/pillar
-```
+To bootstrap the salt-masterless setup and symlink the files here where
+they need to be to run the salt states contained here, run the `bootstrap.sh`
+script.
 
 Then to run:
 ```
