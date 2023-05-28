@@ -1,4 +1,8 @@
 base:
   "*":
-    - packages
     - zsh
+    - rust
+    - go
+    - python
+    - node
+    - vim
