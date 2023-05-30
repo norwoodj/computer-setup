@@ -15,10 +15,14 @@ neovim:
         chmod +x /usr/local/bin/nvim
     - creates: /usr/local/bin/nvim
 
+tree-sitter:
+  cmd.run:
+    - name: npm install -g tree-sitter
+    - creates: /usr/local/bin/tree-sitter
+
 lunarvim:
   cmd.run:
     - name: |
-        npm install -g tree-sitter
         curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/{{ lunarvim_branch }}/utils/installer/install.sh -o /tmp/lunarvim.sh
         chmod +x /tmp/lunarvim.sh
         /tmp/lunarvim.sh -y
