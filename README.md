@@ -7,10 +7,19 @@ only been tested on linux.
 You will need to install `git` and `curl` manually before using this repo.
 
 To bootstrap the salt-masterless setup and symlink the files here where
-they need to be to run the salt states contained here, run the `bootstrap.sh`
-script.
-
-Then to run:
+they need to be to run the salt states contained here, run:
 ```
-salt-call --local state.apply
+sudo ./bootstrap.sh
+```
+
+Then to apply all of the salt states:
+```
+sudo salt-call --local state.apply
+```
+
+Once you're done, if you want to clean up so that you can delete this repo
+without leaving any symlinks around, and disable the salt-minion service,
+run:
+```
+sudo ./teardown.sh
 ```

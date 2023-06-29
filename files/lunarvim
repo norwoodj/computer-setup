@@ -1,4 +1,2 @@
 export PATH="${PATH}:/usr/local/lib/node_modules/tree-sitter-cli"
-export EDITOR=/home/veintitres/.local/bin/lvim
-
-alias vim=/home/veintitres/.local/bin/lvim
+export EDITOR=/home/{{ username }}/.local/bin/lvim

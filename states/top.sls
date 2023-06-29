@@ -1,6 +1,7 @@
 base:
   "*":
     - zsh
+    - tmux
     - autojump
     - git
     - rust

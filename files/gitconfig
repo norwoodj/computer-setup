@@ -33,7 +33,7 @@
 	# Don't paginate output by default
 	pager = less
 	# Global ignore file (not shared)
-	excludesfile = /home/jnorwood/.gitignore
+	excludesfile = /home/{{ username }}/.gitignore
 	# Global shared hooks directory
 	# hooksPath = ~/.githooks
 	#
@@ -47,7 +47,7 @@
 	# editor = 'c:/Program Files/Sublime Text 3/subl.exe' -w
 	#
 	# VSCode
-	editor = lvim
+	editor = vim
 	# Don't consider trailing space change as a cause for merge conflicts
 	whitespace = -trailing-space
 [diff]

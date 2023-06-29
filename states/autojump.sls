@@ -10,4 +10,4 @@ autojump:
     - user: {{ username }}
     - group: {{ username }}
     - mode: "0644"
-
+    - makedirs: true

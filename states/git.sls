@@ -7,4 +7,6 @@
     - user: {{ username }}
     - group: {{ username }}
     - mode: "0644"
-
+    - template: jinja
+    - defaults:
+        username: {{ username }}

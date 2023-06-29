@@ -27,7 +27,7 @@ lunarvim:
         chmod +x /tmp/lunarvim.sh
         /tmp/lunarvim.sh -y
     - runas: {{ username }}
-    - creates: /home/veintitres/.local/bin/lvim
+    - creates: /home/{{ username }}/.local/bin/lvim
     - env:
         - LV_BRANCH: {{ lunarvim_branch }}
 
@@ -38,6 +38,10 @@ lunarvim:
     - user: {{ username }}
     - group: {{ username }}
     - mode: "0644"
+    - makedirs: true
+    - template: jinja
+    - defaults:
+        username: {{ username }}
 
 /home/{{ username }}/.config/lvim/config.lua:
   file.managed:
@@ -46,4 +50,8 @@ lunarvim:
     - user: {{ username }}
     - group: {{ username }}
     - mode: "0644"
+    - makedirs: true
 
+/usr/local/bin/vim:
+  file.symlink:
+    - target: /home/{{ username }}/.local/bin/lvim
