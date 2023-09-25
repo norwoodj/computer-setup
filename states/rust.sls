@@ -1,4 +1,4 @@
-{% set username = pillar["user"]["username"] %}
+{% set username = pillar.user.username %}
 
 install-rust:
   cmd.run:

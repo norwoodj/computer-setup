@@ -19,3 +19,7 @@ install-go:
     - template: jinja
     - defaults:
         username: {{ username }}
+
+/usr/bin/go:
+  file.symlink:
+    - target: /usr/local/go/bin/go
