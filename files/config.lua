@@ -8,11 +8,11 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
 lvim.autocommands = {
-	{
-		{ "BufEnter", "BufWinEnter" },
-		{
-			pattern = {"*.sls", "*.yaml"},
-			command = "setlocal ts=2 sw=2",
-		},
-	},
+    {
+        { "BufEnter", "BufWinEnter" },
+        {
+            pattern = {"*.sls", "*.yaml"},
+            command = "setlocal ts=2 sw=2",
+        },
+    },
 }
