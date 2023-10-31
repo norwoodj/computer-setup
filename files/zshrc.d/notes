@@ -1,0 +1,24 @@
+function note {
+	local today=$(date -u "+%Y-%m-%d")
+	local file="${HOME}/cloudflare/notes/${today}.md"
+
+	if [[ ! -f "${file}" ]]; then
+		cat > "${file}" <<EOF
+${today}
+========== 
+*To Do*
+
+*What I did*
+
+*Next*
+
+EOF
+	fi
+
+	local last_note=$(ls ${HOME}/cloudflare/notes/*.md | grep -v "${today}" | sort -r | head -n1)
+	if [[ -n "${last_note}" ]]; then
+		vim -O "${file}" "${last_note}"
+	else
+		vim "${file}"
+	fi
+}

@@ -1,0 +1,19 @@
+alias trace="curl -s https://cloudflare.com/cdn-cgi/trace"
+
+function "get-metal" {
+	trace | grep fl= | sed -E "s|^fl=([0-9]*)f([0-9]*)|\1m\2|g"
+}
+
+function "connect-metal" {
+	local desired_metal=${1:?"usage: ${0} <metal>"}
+	local metal=$(get-metal)
+
+	while [[ ${metal} != ${desired_metal} ]]; do
+		echo "Connected to ${metal}, rotating..."
+		warp-cli rotate-keys
+		wait-for-it -q cloudflare.com:443
+		local metal=$(get-metal)
+	done
+
+	echo "Connected to metal $(get-metal)"
+}

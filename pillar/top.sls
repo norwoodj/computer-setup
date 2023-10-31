@@ -1,5 +1,6 @@
 base:
   "*":
-    - user
     - go
+    - node
+    - user
     - vim

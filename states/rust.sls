@@ -8,12 +8,3 @@ install-rust:
         /tmp/rustup.sh -y
     - creates: /home/{{ username }}/.cargo
     - runas: {{ username }}
-
-/home/{{ username }}/.zshrc.d/rust-path:
-  file.managed:
-    - source:
-        - "salt://files/rust-path"
-    - user: {{ username }}
-    - group: {{ username }}
-    - mode: "0644"
-    - makedirs: true

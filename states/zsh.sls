@@ -19,6 +19,19 @@ install-oh-my-zsh:
     - group: {{ username }}
     - mode: "0644"
 
+/home/{{ username }}/.zshrc.d:
+  file.recurse:
+    - source:
+        - "salt://files/zshrc.d"
+    - user: {{ username }}
+    - group: {{ username }}
+    - file_mode: "0644"
+    - makedirs: true
+    - recurse:
+        - user
+        - group
+        - file_mode
+
 {{ username }}:
   user.present:
     - remove_groups: false    

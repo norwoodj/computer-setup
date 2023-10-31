@@ -6,7 +6,6 @@ local options = { noremap = true }
 vim.keymap.set("i", "jj", "<Esc>", options)
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.cmd("set noexpandtab")
 
 lvim.autocommands = {
 	{
@@ -14,13 +13,6 @@ lvim.autocommands = {
 		{
 			pattern = {"*.sls", "*.yaml"},
 			command = "setlocal ts=2 sw=2",
-		},
-	},
-	{
-		{ "BufEnter", "BufWinEnter" },
-		{
-			pattern = {"*.sls", "*.yaml"},
-			command = "set expandtab",
 		},
 	},
 }
