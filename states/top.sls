@@ -10,3 +10,4 @@ base:
     - python
     - node
     - vim
+    - docker
