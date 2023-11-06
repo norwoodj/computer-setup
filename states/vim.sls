@@ -2,11 +2,12 @@
 {% set lunarvim_branch = pillar["lunarvim"]["branch"] %}
 {% set neovim_version = pillar["lunarvim"]["neovim_version"] %}
 
-fuse:
+packages:
   pkg.installed:
     - pkgs:
         - fuse
         - libfuse2
+        - xclip
 
 neovim:
   cmd.run:
