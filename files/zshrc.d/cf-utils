@@ -17,3 +17,36 @@ function "connect-metal" {
 
     echo "Connected to metal $(get-metal)"
 }
+
+function "connect-metals" {
+    local desired_metal=${1:?"usage: ${0} <metal> [<metal> [ <metal> ...]]"}
+    local metal=$(get-metal)
+
+    while true; do
+        for m in metals; do
+            if [[ "${metal}" == "${desired_metal}" ]]; then
+                echo "Connected to metal $(get-metal)"
+                return
+            fi
+        done
+
+        echo "Connected to ${metal}, rotating..."
+        warp-cli tunnel rotate-keys
+        wait-for-it -q cloudflare.com:443
+
+        local metal=$(get-metal)
+    done
+}
+
+function "code-link" {
+    local file=${1}
+    local line=${2:-""}
+    local project=$(basename $(cd `git rev-parse --show-toplevel`/.. && pwd))
+    local repo=$(basename `git rev-parse --show-toplevel`)
+
+    echo -n "https://bitbucket.cfdata.org/projects/${project}/repos/${repo}/browse/${file}?at=$(git rev-parse HEAD)"
+
+    if [[ -n "${line}" ]]; then
+        echo "#${line}"
+    fi
+}
