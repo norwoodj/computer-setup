@@ -1,4 +1,2 @@
-states/files
-files/files
+salt/salt
 pillar/pillar
-states/states
