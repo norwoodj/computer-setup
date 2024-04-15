@@ -1,0 +1,6 @@
+function "search-replace" {
+    local search=${1:?"usage: ${0} <search> <replace>"}
+    local replace=${2:?"usage: ${0} <search> <replace>"}
+
+    sed -Ei "s|${search}|${replace}|g" $(pt -l "${search}")
+}
