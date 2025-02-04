@@ -8,18 +8,6 @@ install-go:
         tar -C /usr/local -xzf /tmp/go.tar.gz
     - creates: /usr/local/go
 
-/home/{{ username }}/.zshrc.d/go-path:
-  file.managed:
-    - source:
-        - "salt://files/go-path"
-    - user: {{ username }}
-    - group: {{ username }}
-    - mode: "0644"
-    - makedirs: true
-    - template: jinja
-    - defaults:
-        username: {{ username }}
-
 /usr/bin/go:
   file.symlink:
     - target: /usr/local/go/bin/go

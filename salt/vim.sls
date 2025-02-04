@@ -27,18 +27,6 @@ lunarvim:
     - env:
         - LV_BRANCH: {{ lunarvim_branch }}
 
-/home/{{ username }}/.zshrc.d/lunarvim:
-  file.managed:
-    - source:
-      - "salt://files/lunarvim"
-    - user: {{ username }}
-    - group: {{ username }}
-    - mode: "0644"
-    - makedirs: true
-    - template: jinja
-    - defaults:
-        username: {{ username }}
-
 /home/{{ username }}/.config/lvim/config.lua:
   file.managed:
     - source:
