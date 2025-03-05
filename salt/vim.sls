@@ -5,14 +5,12 @@
 packages:
   pkg.installed:
     - pkgs:
-        - fuse
-        - libfuse2
         - xclip
 
 neovim:
   cmd.run:
     - name: |
-        curl -sL https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim.appimage -o /usr/local/bin/nvim
+        curl -sL https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim-linux-x86_64.appimage -o /usr/local/bin/nvim
         chmod +x /usr/local/bin/nvim
     - creates: /usr/local/bin/nvim
 
