@@ -1,2 +1,2 @@
 go:
-  version: 1.21.3
+  version: 1.23.5
