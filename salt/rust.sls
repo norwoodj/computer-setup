@@ -9,15 +9,15 @@ install-rust:
     - creates: /home/{{ username }}/.cargo
     - runas: {{ username }}
 
-/home/veintitres/.zshrc.d/rust-path:
+/home/{{ username }}/.zshrc.d/rust-path:
   file.managed:
     - source:
         - "salt://files/zshrc.d/rust-path"
-    - user: veintitres
-    - group: veintitres
+    - user: {{ username }}
+    - group: {{ username }}
     - mode: "0644"
     - makedirs: true
 
 /usr/bin/cargo:
   file.symlink:
-    - target: /home/veintitres/.cargo/bin/cargo
+    - target: /home/{{ username }}/.cargo/bin/cargo
